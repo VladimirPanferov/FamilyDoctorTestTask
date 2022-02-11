@@ -6,6 +6,8 @@ from fastapi import (
     Depends,
 )
 
+from models.weather import WeatherForecast
+
 from service.weather import WeatherService
 
 router = APIRouter(
@@ -13,7 +15,7 @@ router = APIRouter(
     tags=["weather"],
 )
 
-@router.get("/")
+@router.get("/", response_model=WeatherForecast)
 def get_weather(
     country_code: str,
     city: str,
