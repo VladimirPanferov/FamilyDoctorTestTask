@@ -19,8 +19,12 @@ router = APIRouter(
 def get_weather(
     country_code: str,
     city: str,
-    date: Optional[date] = None,
+    weather_date: Optional[date] = None,
     weather_service: WeatherService = Depends(),
 ):
-    return WeatherService.get_weather()
+    return WeatherService.get_weather(
+        country_code,
+        city,
+        weather_date,
+    )
 
