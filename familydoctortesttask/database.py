@@ -7,6 +7,7 @@ from settings import settings
 
 engine = create_engine(
     settings.database_url,
+    encoding="utf-8",
 )
 
 Session = sessionmaker(
