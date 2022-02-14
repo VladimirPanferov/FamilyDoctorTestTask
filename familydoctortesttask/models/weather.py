@@ -17,7 +17,6 @@ class Country(CountryBase):
 
 class CityBase(BaseModel):
     name: str
-    code: str
 
 
 class City(CityBase):
@@ -30,7 +29,7 @@ class City(CityBase):
 
 class WeatherForecastBase(BaseModel):
     date: date
-    weather: int
+    weather: float
 
 
 class WeatherForecast(WeatherForecastBase):
