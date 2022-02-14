@@ -1,6 +1,6 @@
 from sqlalchemy import (
     Column,
-    Date,
+    DateTime,
     Integer,
     Float,
     ForeignKey,
@@ -38,7 +38,7 @@ class WeatherForecast(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     country_id = Column(Integer, ForeignKey("countries.id"), index=True)
     city_id = Column(Integer, ForeignKey("cities.id"), index=True)
-    date = Column(Date)
+    date = Column(DateTime)
     weather = Column(Float)
 
     country = relationship("Country", backref="countries")
