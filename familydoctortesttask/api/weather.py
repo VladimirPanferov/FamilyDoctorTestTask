@@ -1,4 +1,7 @@
-from datetime import date
+from datetime import (
+    date,
+    datetime,
+)
 from typing import Optional
 
 from fastapi import (
@@ -19,12 +22,12 @@ router = APIRouter(
 def get_weather(
     country_code: str,
     city: str,
-    weather_date: Optional[date] = None,
+    weather_date: Optional[date] = datetime.now().date(),
     weather_service: WeatherService = Depends(),
 ):
-    return WeatherService.get_weather(
-        country_code,
-        city,
-        weather_date,
+    return weather_service.get(
+        country_code=country_code,
+        city_name=city,
+        weather_date=weather_date,
     )
 
