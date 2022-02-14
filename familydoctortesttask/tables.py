@@ -2,6 +2,7 @@ from sqlalchemy import (
     Column,
     Date,
     Integer,
+    Float,
     ForeignKey,
     String,
 )
@@ -27,7 +28,6 @@ class City(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     country_id = Column(Integer, ForeignKey("countries.id"), index=True)
     name  = Column(String, unique=True)
-    code = Column(String, unique=True)
 
     country = relationship("Country", backref="cities")
 
@@ -39,7 +39,7 @@ class WeatherForecast(Base):
     country_id = Column(Integer, ForeignKey("countries.id"), index=True)
     city_id = Column(Integer, ForeignKey("cities.id"), index=True)
     date = Column(Date)
-    weather = Column(Integer)
+    weather = Column(Float)
 
     country = relationship("Country", backref="countries")
     city = relationship("City", backref="cities")
