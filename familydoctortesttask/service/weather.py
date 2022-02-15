@@ -165,6 +165,7 @@ class WeatherService:
         )
         return weather_forecast
 
+    @staticmethod
     def _get_weather_from_api(
         country_code: str,
         city: str,
@@ -196,6 +197,7 @@ class WeatherService:
             }
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
 
+    @staticmethod
     def _get_target_date(weather_date: Optional[datetime.date] = None) -> datetime.datetime:
         if weather_date is None:
             now = datetime.datetime.now(tz=MOSCOW_TZ)
